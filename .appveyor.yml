@@ -1,0 +1,8 @@
+install:
+  - cinst osquery
+
+environment:
+
+
+test_script:
+    - choco list -l

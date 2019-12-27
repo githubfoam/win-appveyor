@@ -18,9 +18,11 @@ install:
   - conda config --set always_yes yes --set changeps1 no
   - conda update -q conda
   - conda info -a # Useful for debugging any issues with conda
+  # - conda env create -n venv-basic-anomaly-detection python=%PYTHON_VERSION%  -f conda_environment.yml
   - conda env create -n venv-basic-anomaly-detection python=%PYTHON_VERSION%  -f conda_environment.yml
   - CALL conda.bat activate venv-basic-anomaly-detection
-test_script:
   - py.test
+# test_script:
+#   - py.test
 after_test:
-  - python --version
+  - conda deactivate

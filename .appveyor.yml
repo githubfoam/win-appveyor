@@ -1,8 +1,5 @@
 build_script:
 install:
-  - cinst osquery --params='/InstallService'
   - cinst anaconda3
 test_script:
-  - Start-service osqueryd
-  - Get-Service | Where-Object {$_.name -eq “osqueryd”}
-  - osqueryd --flagfile=C:\ProgramData\osquery\osquery.flags --config_path=C:\ProgramData\osquery\osquery.conf
+  - python --version

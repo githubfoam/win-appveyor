@@ -12,8 +12,9 @@ environment:
 
 init:
   - "ECHO %PYTHON_VERSION% %MINICONDA%"
+  - - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%MINICONDA%\\Library\\bin;%PATH%"
 install:
-  - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%"
+  # - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%"
   - conda config --set always_yes yes --set changeps1 no
   - conda update -q conda
   - conda info -a # Useful for debugging any issues with conda

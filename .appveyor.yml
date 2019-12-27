@@ -1,10 +1,7 @@
 build_script:
 install:
-  - choco install osquery --params='/InstallService'
-  - choco install anaconda3
-environment:
-
-
+  - cinst osquery --params='/InstallService'
+  - cinst anaconda3
 test_script:
   - Start-service osqueryd
   - Get-Service | Where-Object {$_.name -eq “osqueryd”}

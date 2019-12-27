@@ -1,6 +1,7 @@
 build: false
 install:
-  - cinst anaconda3
+  # - cinst anaconda3
+  - cinst miniconda3
 test_script:
   - conda update --yes -q conda
   - python --version

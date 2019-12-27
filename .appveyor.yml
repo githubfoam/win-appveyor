@@ -5,9 +5,9 @@ environment:
       PYTHON_ARCH: 32
       MINICONDA: C:\Miniconda
 
-    - PYTHON_VERSION: 2.7
-      PYTHON_ARCH: 64
-      MINICONDA: C:\Miniconda-x64
+    # - PYTHON_VERSION: 2.7
+    #   PYTHON_ARCH: 64
+    #   MINICONDA: C:\Miniconda-x64
 
 
 init:
@@ -16,7 +16,10 @@ install:
   - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%"
   - conda config --set always_yes yes --set changeps1 no
   - conda update -q conda
+  - conda info -a # Useful for debugging any issues with conda
+  - conda env create -n test-environment python=%PYTHON_VERSION%  -f conda_environment.yml
+  - source activate test-environment
 test_script:
-  - python --version
+  - py.test
 after_test:
   - python --version

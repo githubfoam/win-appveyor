@@ -1,13 +1,13 @@
 build: false
 environment:
   matrix:
-    - PYTHON_VERSION: 2.7
-      PYTHON_ARCH: 64
-      MINICONDA: C:\Miniconda
-
-    # - PYTHON_VERSION: 3.7
+    # - PYTHON_VERSION: 2.7
     #   PYTHON_ARCH: 64
-    #   MINICONDA: C:\Miniconda37-x64 # Miniconda3 4.7.12 x64 (Python 3.7.4)
+    #   MINICONDA: C:\Miniconda
+
+    - PYTHON_VERSION: 3.7
+      PYTHON_ARCH: 64
+      MINICONDA: C:\Miniconda37-x64 # Miniconda3 4.7.12 x64 (Python 3.7.4)
 
 
 init:

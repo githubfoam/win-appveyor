@@ -5,9 +5,9 @@ environment:
       PYTHON_ARCH: 64
       MINICONDA: C:\Miniconda
 
-    - PYTHON_VERSION: 3.7
-      PYTHON_ARCH: 64
-      MINICONDA: C:\Miniconda37-x64 # Miniconda3 4.7.12 x64 (Python 3.7.4)
+    # - PYTHON_VERSION: 3.7
+    #   PYTHON_ARCH: 64
+    #   MINICONDA: C:\Miniconda37-x64 # Miniconda3 4.7.12 x64 (Python 3.7.4)
 
 
 init:
@@ -18,7 +18,7 @@ install:
   - conda update -q conda
   - conda info -a # Useful for debugging any issues with conda
   - conda env create -n venv-basic-anomaly-detection python=%PYTHON_VERSION%  -f conda_environment.yml
-  - conda activate venv-basic-anomaly-detection
+  - CALL conda.bat activate venv-basic-anomaly-detection
 test_script:
   - py.test
 after_test:

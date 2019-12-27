@@ -17,10 +17,6 @@ install:
   - conda config --set always_yes yes --set changeps1 no
   - conda update -q conda
 test_script:
-  - python --version
+  - python2 --version
 after_test:
-#  - python setup.py bdist_wheel
-  - "mkdir dist"
-  - "xcopy %MINICONDA%\\conda-bld\\win-%PYTHON_ARCH%\\*.tar.bz2 dist\\"
-artifacts:
-  - path: dist\*
+  - python3 --version

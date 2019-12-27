@@ -1,5 +1,6 @@
-build_script:
+build: Script
 install:
   - cinst anaconda3
 test_script:
+  - conda update --yes -q conda
   - python --version

@@ -2,7 +2,7 @@ build: false
 environment:
   matrix:
     - PYTHON_VERSION: 2.7
-      PYTHON_ARCH: 32
+      PYTHON_ARCH: 64
       MINICONDA: C:\Miniconda
 
     - PYTHON_VERSION: 3.7
@@ -17,8 +17,8 @@ install:
   - conda config --set always_yes yes --set changeps1 no
   - conda update -q conda
   - conda info -a # Useful for debugging any issues with conda
-  - conda env create -n test-environment python=%PYTHON_VERSION%  -f conda_environment.yml
-  - source activate test-environment
+  - conda env create -n venv-basic-anomaly-detection python=%PYTHON_VERSION%  -f conda_environment.yml
+  - conda activate venv-basic-anomaly-detection
 test_script:
   - py.test
 after_test:

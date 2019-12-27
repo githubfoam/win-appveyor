@@ -1,4 +1,4 @@
-build: Script
+build: false
 install:
   - cinst anaconda3
 test_script:

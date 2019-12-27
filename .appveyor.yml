@@ -1,3 +1,4 @@
+build_script:
 install:
   - choco install osquery --params='/InstallService'
   - choco install anaconda3
@@ -7,4 +8,4 @@ environment:
 test_script:
   - Start-service osqueryd
   - Get-Service | Where-Object {$_.name -eq “osqueryd”}
-  - osqueryd --flagfile=C:\ProgramData\osquery\osquery.flags --config_path=C:\ProgramData\osquery\osquery.conf  
+  - osqueryd --flagfile=C:\ProgramData\osquery\osquery.flags --config_path=C:\ProgramData\osquery\osquery.conf

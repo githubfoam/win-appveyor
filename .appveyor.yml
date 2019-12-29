@@ -1,28 +1,9 @@
-build: false
+version: 1.10.0.{build}
 environment:
-  matrix:
-    # - PYTHON_VERSION: 2.7
-    #   PYTHON_ARCH: 64
-    #   MINICONDA: C:\Miniconda
+  TIMEOUT: "60m"
+  DOCKER_REMOTE_DAEMON: "1"
 
-    - PYTHON_VERSION: 3.7
-      PYTHON_ARCH: 64
-      MINICONDA: C:\Miniconda37-x64 # Miniconda3 4.7.12 x64 (Python 3.7.4)
-
-
-init:
-  - "ECHO %PYTHON_VERSION% %MINICONDA%"
-  - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%MINICONDA%\\Library\\bin;%PATH%"
 install:
-  # - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%"
-  - conda config --set always_yes yes --set changeps1 no
-  - conda update -q conda
-  - conda info -a # Useful for debugging any issues with conda
-  # - conda env create -n venv-basic-anomaly-detection python=%PYTHON_VERSION%  -f conda_environment.yml
-  - conda env create -n venv-basic-anomaly-detection python=%PYTHON_VERSION%  -f conda_environment.yml
-  - CALL conda.bat activate venv-basic-anomaly-detection
-  - py.test
-# test_script:
-#   - py.test
-after_test:
-  - conda deactivate
+  - choco install -y mingw
+  - choco install -y virtualbox
+  - choco install -y docker-machine
